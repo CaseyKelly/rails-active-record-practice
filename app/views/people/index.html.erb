@@ -2,6 +2,13 @@
   <h1>People</h1>
 </div>
 
+<p><%= link_to "Sort by first name", root_path(first_name: true) %>
+<p><%= link_to "Sort by last name", root_path(last_name: true) %>
+<p><%= link_to "Sort by eye color", root_path(eye_color: true) %>
+<p><%= link_to "Sort by date of birth", root_path(date_of_birth: true) %>
+<p><%= link_to "Only show awesome people", root_path(awesome: true) %>
+
+
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -16,6 +23,9 @@
   </thead>
   <tbody>
     <% @people.each do |person| %>
+    <% if person.first_name == 'Casey' %>
+    <h1><%= person.first_name %></h1>
+    <% end %>
       <tr>
         <td><%= person.id %></td>
         <td><%= person.first_name %></td>
